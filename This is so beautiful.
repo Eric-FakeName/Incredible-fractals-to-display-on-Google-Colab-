@@ -1,6 +1,7 @@
 # Fractal of z^(-n-0.5) - tan(n) 
 # you can modify the value of n here, 
 n = -2
+# The most beautiful values are -2 and -3
 
 import numpy as np
 import matplotlib.pyplot as plt
