@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# nb points
+N = 100000
+
+x, y = 0, 0
+
+points_x = []
+points_y = []
+
+for i in range(N):
+    r = np.random.rand()
+
+    if r < 0.01:
+        # tige
+        x, y = 0, 0.16 * y
+    elif r < 0.86:
+        # feuilles principales
+        x, y = 0.85*x + 0.04*y, -0.04*x + 0.85*y + 1.6
+    elif r < 0.93:
+        # branche gauche
+        x, y = 0.2*x - 0.26*y, 0.23*x + 0.22*y + 1.6
+    else:
+        # branche droite dcp 
+        x, y = -0.15*x + 0.28*y, 0.26*x + 0.24*y + 0.44
+
+    points_x.append(x)
+    points_y.append(y)
+
+plt.figure(figsize=(6,10))
+plt.scatter(points_x, points_y, s=0.1, color="green")
+plt.axis("off")
+plt.title("Fougère fractale (Barnsley Fern)")
+plt.show()
