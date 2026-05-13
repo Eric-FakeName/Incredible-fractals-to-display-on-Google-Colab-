@@ -1,0 +1,37 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# dezoom
+re_min, re_max = -1, 1
+im_min, im_max = -1, 1
+
+width, height = 1000, 1000
+max_iter = 60
+escape_radius = 10
+
+real = np.linspace(re_min, re_max, width)
+imag = np.linspace(im_min, im_max, height)
+X, Y = np.meshgrid(real, imag)
+Z0 = X + 1j * Y
+
+Z = Z0.copy()
+div_time = np.zeros(Z.shape, dtype=float)
+
+for i in range(max_iter):
+    Z = Z**(-1.5) - np.cos(Z)
+
+    mask = (np.abs(Z) > escape_radius) & (div_time == 0)
+    div_time[mask] = i
+
+div_time = div_time / div_time.max()
+
+plt.figure(figsize=(7, 7))
+plt.imshow(
+    div_time,
+    extent=(re_min, re_max, im_min, im_max),
+    cmap="turbo",
+    interpolation="bilinear"
+)
+plt.colorbar(label="temps de divergence (normalisé)")
+plt.title("Amazing fractal of z^-1.5 - cos(z)")
+plt.show()
