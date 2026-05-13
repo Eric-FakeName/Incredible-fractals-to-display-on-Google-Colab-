@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+A = np.array([0, 0])
+B = np.array([1, 0])
+C = np.array([0.5, np.sqrt(3)/2])
+
+vertices = [A, B, C]
+
+x, y = np.random.rand(2)
+
+points_x = []
+points_y = []
+
+N = 100000
+
+for _ in range(N):
+    vx, vy = vertices[np.random.randint(0, 3)]
+
+    x = (x + vx) / 2
+    y = (y + vy) / 2
+
+    points_x.append(x)
+    points_y.append(y)
+
+plt.figure(figsize=(6,6))
+plt.scatter(points_x, points_y, s=0.1, color="black")
+plt.axis("off")
+plt.title("Triangle de Sierpiński (Chaos Game)")
+plt.show()
