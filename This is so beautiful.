@@ -38,5 +38,5 @@ plt.imshow(
     interpolation="bilinear"
 )
 plt.colorbar(label="temps de divergence (normalisé)")
-plt.title("Amazing fractal of z^-1.5 - cos(z)")
+plt.title("Amazing fractal of z^x - cos(z)")
 plt.show()
