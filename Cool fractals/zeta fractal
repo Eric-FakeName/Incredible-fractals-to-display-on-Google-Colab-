@@ -1,0 +1,28 @@
+plt.figure(figsize=(10,10))  
+
+plt.imshow(
+    div_time,
+    extent=(re_min,re_max,im_min,im_max),
+    cmap="turbo",
+    interpolation="bilinear"
+)
+
+major_ticks = np.arange(-6,7,1)     
+minor_ticks = np.arange(-6,6.5,0.5) 
+
+plt.xticks(major_ticks, fontsize=11)
+plt.yticks(major_ticks, fontsize=11)
+
+plt.gca().set_xticks(minor_ticks, minor=True)
+plt.gca().set_yticks(minor_ticks, minor=True)
+plt.grid(which='major', alpha=0.35)
+plt.grid(which='minor', alpha=0.12)
+
+plt.tick_params(axis='x', rotation=0, pad=8)
+plt.tick_params(axis='y', pad=8)
+
+plt.colorbar()
+plt.title("Fractale zêta optimisée", fontsize=14)
+
+plt.tight_layout()   # IMPORTANT
+plt.show()
