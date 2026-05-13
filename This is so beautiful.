@@ -1,7 +1,7 @@
 # Fractal of z^(n) - tan(n) 
 # you can modify the value of n here, 
 n = -2.5
-# The most beautiful values are -2.5 and -3.5, -2 is amazing too... 
+# The most beautiful values are -2.5 and -3.5, -2, -4, and other negative even number are AMAZING too. 
 
 import numpy as np
 import matplotlib.pyplot as plt
