@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 🔭 DÉZOOM (plus grand domaine)
+# dezoom 
 re_min, re_max = -1, 1
 im_min, im_max = -1, 1
 
