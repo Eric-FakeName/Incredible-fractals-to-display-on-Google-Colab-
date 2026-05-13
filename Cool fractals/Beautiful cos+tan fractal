@@ -1,0 +1,40 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+re_min, re_max = -2, 2
+im_min, im_max = -2, 2
+
+width, height = 800, 800
+max_iter = 80
+
+real = np.linspace(re_min, re_max, width)
+imag = np.linspace(im_min, im_max, height)
+X, Y = np.meshgrid(real, imag)
+
+# on stocke x et y séparément
+x = X.copy()
+y = Y.copy()
+
+# accumulation de densité (style "fractale")
+density = np.zeros_like(x)
+
+for i in range(max_iter):
+    x_new = np.tan(x) + y
+    y_new = np.cos(y) - x
+
+    x, y = x_new, y_new
+
+    density += np.exp(- (x**2 + y**2))
+
+density = density / np.max(density)
+
+plt.figure(figsize=(7, 7))
+plt.imshow(
+    density,
+    extent=(re_min, re_max, im_min, im_max),
+    cmap="turbo",
+    interpolation="bilinear"
+)
+plt.colorbar(label="densité d'attracteur")
+plt.title("Attracteur étrange 2D (système sin/cos couplé)")
+plt.show()
