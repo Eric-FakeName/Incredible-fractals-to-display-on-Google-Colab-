@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+#e
 re_min, re_max = -2, 2
 im_min, im_max = -2, 2
 
