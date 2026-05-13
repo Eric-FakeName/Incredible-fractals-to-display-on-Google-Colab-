@@ -1,7 +1,7 @@
-# Fractal of z^(-n-0.5) - tan(n) 
+# Fractal of z^(n) - tan(n) 
 # you can modify the value of n here, 
-n = -2
-# The most beautiful values are -2 and -3
+n = -2.5
+# The most beautiful values are -2.5 and -3.5, -2 is amazing too... 
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,7 +23,7 @@ Z = Z0.copy()
 div_time = np.zeros(Z.shape, dtype=float)
 
 for i in range(max_iter):
-    Z = Z**(n-0.5) - np.tan(Z)
+    Z = Z**(n) - np.tan(Z)
 
     mask = (np.abs(Z) > escape_radius) & (div_time == 0)
     div_time[mask] = i
